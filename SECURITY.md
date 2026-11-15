@@ -39,5 +39,6 @@ The following are not considered security vulnerabilities:
 
 ## Contact
 Maintainer: SkyGoose (Kirill Zagorodnev)
-Email: zagorodneff.kirill@gmail.com
-Repository: https://gitverse.ru/skygoose/PHPConsoleTooltips
+Email: <a href="mailto:zagorodneff.kirill@gmail.com">zagorodneff.kirill@gmail.com</a>
+Repository (RU): <a href="https://gitverse.ru/skygoose/PHPConsoleTooltips">https://gitverse.ru/skygoose/PHPConsoleTooltips</a>
+Repository (EN): <a href="https://github.com/is-skygoose/PHPConsoleTooltips">https://github.com/is-skygoose/PHPConsoleTooltips</a>
