@@ -1,84 +1,43 @@
-# Политика безопасности
+# SECURITY POLICY
 
-## Поддерживаемые версии
+## Scope
+This policy applies to the `skygoose/php-console-tooltips` repository and its official releases. It does not apply to forks, unofficial builds, or third-party distributions.
 
-Исправления безопасности выпускаются только для последней минорной линии
-`main`. Более старые теги и ветки не поддерживаются.
+## Supported Versions
+Only the latest stable release and the `main` branch are actively supported for security fixes. Older versions are not patched.
 
-| Версия       | Поддержка            |
-|--------------|----------------------|
-| `main` (dev) | ✅ активная разработка |
-| latest tag   | ✅ исправления безопасности |
-| старые теги  | ❌ обновления не выпускаются |
+| Version | Status |
+|---------|--------|
+| `main` | Supported |
+| Latest Stable Tag | Supported |
+| All Previous Tags | Unsupported |
 
-## Как сообщить об уязвимости
+## Reporting Vulnerabilities
+Vulnerabilities must not be reported via public Issues or Pull Requests.
 
-Пожалуйста, **не публикуйте** информацию об уязвимостях в открытых issue и
-обсуждениях — это может привести к эксплуатации до выхода исправления.
+- **For GitHub:** Use the "Report a vulnerability" button in the Security tab.
+- **For GitVerse / Other channels:** Email `zagorodneff.kirill@gmail.com` with subject `[SECURITY] php-console-tooltips`.
 
-- **GitHub:** воспользуйтесь приватным отчётом об уязвимости
-  (вкладка **Security** → **Report a vulnerability**) в репозитории
-  `is-skygoose/PHPConsoleTooltips`.
-- **GitVerse или другие платформы:** напишите на
-  `zagorodneff.kirill@gmail.com` с темой вида
-  `[security] php-console-tooltips: <краткое описание>`.
+The report must include:
+- A clear description of the issue and its impact.
+- Steps to reproduce (minimal PoC).
+- Environment details (PHP version, OS, terminal).
 
-Если канал не отвечает в течение срока, указанного ниже, допустимо
-продублировать сообщение в приватном обсуждении репозитория с пометкой
-«security» (без деталей уязвимости).
+## Response and Disclosure
+- Initial acknowledgment: within 72 hours.
+- Severity assessment: within 7 days.
+- Patch release: as soon as feasible; critical issues receive highest priority.
 
-Что включить в отчёт:
+Disclosure to the public will occur only after a fix is released or coordinated with the reporter.
 
-- описание проблемы и её влияние;
-- минимальные шаги для воспроизведения (PoC-скрипт, если есть);
-- затронутые версии и окружение (версия PHP, ОС, терминал);
-- предложение по исправлению, если оно у вас есть.
+## Exclusions
+The following are not considered security vulnerabilities:
+- Issues caused by incorrect usage of the library by the consumer.
+- Problems originating in dependencies (report to the dependency maintainer).
+- Feature requests, documentation gaps, or style issues.
+- Issues related to data storage or secret management by the application using this library.
 
-## Сроки реакции
-
-- Подтверждение получения отчёта — в течение **72 часов**.
-- Оценка серьёзности и план исправления — до **7 дней**.
-- Выпуск патча — по мере готовности; для критических уязвимостей — как можно
-  быстрее.
-
-О ходе работы сообщаю по каналу, через который получен отчёт, до публикации
-исправления.
-
-## Координированное раскрытие
-
-- Пожалуйста, дайте разумное время на выпуск исправления до публичного
-  разглашения. По договорённости раскрытие происходит после выхода патча.
-- По желанию автора отчёта он будет упомянут в changelog и в advisory.
-- Просьба не эксплуатировать уязвимость за пределами, необходимыми для
-  подтверждения проблемы, и не проводить атаки на инфраструктуру других
-  пользователей.
-
-## Область охвата
-
-Проект — консольная PHP-библиотека без веб-интерфейса. В первую очередь
-интересны:
-
-- попадание недоверенных данных в консольный вывод: инъекции управляющих
-  escape-последовательностей терминала (ANSI) через текст команд, параметров
-  и элементов UI;
-- инъекции команд при вызове внешних процессов (pcntl/posix, если применимо);
-- path traversal при чтении/записи файлов (конфигурация `.appconf`,
-  файлы миграций);
-- небезопасная десериализация (`unserialize`) недоверенных данных;
-- обход ограничений системы команд и атрибутов, позволяющий выполнить
-  нежелательный код.
-
-**Уязвимости зависимостей.** Если проблема находится в стороннем пакете,
-а не в коде этой библиотеки, направьте отчёт мейнтейнеру этой зависимости.
-О CVE в зависимости, которая затрагивает этот проект, всё равно сообщите —
-добавлю ограничение версии или обходное решение.
-
-## Что не считается уязвимостью
-
-- Требования шифрования, хранения секретов или защиты данных на стороне
-  приложения-потребителя: библиотека выводит в терминал то, что ей передали,
-  и не хранит чувствительные данные.
-- «Уязвимости» от некорректного использования API, описанного в README.
-- Отчёты о стиле кода, отсутствующих фичах и качестве документации — для
-  этого есть обычные issue.
-- Спам, фишинг и социальная инженерия.
+## Contact
+Maintainer: SkyGoose (Kirill Zagorodnev)
+Email: zagorodneff.kirill@gmail.com
+Repository: https://gitverse.ru/skygoose/PHPConsoleTooltips
